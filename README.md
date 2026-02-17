@@ -37,10 +37,9 @@ This project allows admin users to manage leads, add notes, update follow-ups, a
 - CSS (Custom Styling)
 - Render (Deployment)
 
----
-
 ## 📂 Project Structure
 
+```
 mini-crm/
 │
 ├── server.js
@@ -48,24 +47,23 @@ mini-crm/
 ├── .env
 │
 ├── models/
-│ └── Lead.js
+│   └── Lead.js
 │
 ├── routes/
-│ └── leadRoutes.js
+│   └── leadRoutes.js
 │
 ├── middleware/
-│ └── auth.js
+│   └── auth.js
 │
 ├── views/
-│ ├── login.ejs
-│ ├── dashboard.ejs
-│ ├── add.ejs
+│   ├── login.ejs
+│   ├── dashboard.ejs
+│   └── add.ejs
 │
 └── public/
-└── style.css
+    └── style.css
+```
 
-
----
 
 ## ⚙️ Installation (Run Locally)
 
