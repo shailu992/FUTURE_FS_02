@@ -26,6 +26,9 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
 app.use("/", leadRoutes);
 // View engine
 app.set("view engine", "ejs");
