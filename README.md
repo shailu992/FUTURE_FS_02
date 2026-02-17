@@ -37,6 +37,8 @@ This project allows admin users to manage leads, add notes, update follow-ups, a
 - CSS (Custom Styling)
 - Render (Deployment)
 
+---
+
 ## 📂 Project Structure
 
 ```
@@ -64,6 +66,7 @@ mini-crm/
     └── style.css
 ```
 
+---
 
 ## ⚙️ Installation (Run Locally)
 
