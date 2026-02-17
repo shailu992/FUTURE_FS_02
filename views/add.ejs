@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="main-wrapper">
+    <div class="form-card">
+
+      <h2>Add New Lead</h2>
+
+      <form method="POST" action="/add">
+
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-group">
+          <input type="text" name="source" placeholder="Lead Source (Website / Instagram)" required>
+        </div>
+
+        <button type="submit">Add Lead</button>
+
+      </form>
+
+      <div class="back-link">
+        <a href="/dashboard">Back to Dashboard</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

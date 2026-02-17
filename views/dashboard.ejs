@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRM Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+
+    <div class="dashboard-card">
+
+      <div class="top-bar">
+        <h2>CRM Dashboard</h2>
+        <div class="top-links">
+          <a href="/add" class="btn-add">+ Add Lead</a>
+          <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+      </div>
+
+      <table class="lead-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Follow Ups</th>
+            <th>Delete</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          <% leads.forEach(lead => { %>
+            <tr>
+              <td><%= lead.name %></td>
+              <td><%= lead.email %></td>
+              <td><%= lead.source %></td>
+              <td>
+                <span class="status <%= lead.status.toLowerCase() %>">
+                  <%= lead.status %>
+                </span>
+              </td>
+              <td>
+                <form action="/update/<%= lead._id %>" method="POST" class="update-form">
+                  <select name="status">
+                    <option>New</option>
+                    <option>Contacted</option>
+                    <option>Converted</option>
+                  </select>
+                  <button type="submit">Update</button>
+                </form>
+              </td>
+              <td>
+                <form action="/add-note/<%= lead._id %>" method="POST" class="note-form">
+                  <input type="text" name="note" placeholder="Add follow-up note" required>
+                  <button type="submit">Add</button>
+                </form>
+
+                <% if (lead.notes && lead.notes.length > 0) { %>
+                  <ul>
+                    <% lead.notes.forEach(note => { %>
+                      <li>
+                        <strong><%= new Date(note.createdAt).toDateString() %></strong> :
+      <%= note.text %>
+                      </li>
+                    <% }) %>
+                  </ul>
+                <% } %>
+              </td>
+              <td>
+                <form action="/delete/<%= lead._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this lead?');">
+                  <button type="submit" class="delete-btn">Delete</button>
+                </form>
+              </td>
+
+            </tr>
+          <% }) %>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
